@@ -12,12 +12,12 @@
         <ul>
           <li class="active"><a href="index.html">Home <i class="la la-angle-down"></i></a></li>
           <li><a href="{{route('about')}}">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="team.html">Team</a></li>
-          <li><a href="blog.html">Blog</a></li>
+          <li><a href="{{route('services')}}">Services</a></li>
+          <li><a href="{{route('portfolio')}}">Portfolio</a></li>
+          <li><a href="{{route('team')}}">Team</a></li>
+          <li><a href="{{route('blog')}}">Blog</a></li>
           <li><a href="{{route('login')}}">Sing In</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="{{route('contact')}}">Contact Us</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
