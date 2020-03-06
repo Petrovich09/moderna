@@ -10,13 +10,23 @@ use App\User;
 class BlogController extends Controller
 {
   public function show() {
+
       if (View::exists('blog')) {
+
           $posts = Post::orderBy('created_at','DESC')->paginate(2);
-          
-          
-          
-      return view('blog', ['posts'=> $posts]); 
+
+      return view('blog', ['posts'=> $posts]);
     }
     abort(404);
  }
+
+ public function ajax(Request $request) {
+
+          $posts = Post::orderBy('created_at','DESC')->paginate($request->addBlog);
+
+      return view('blog', ['posts'=> $posts]);
+    }
+    
+ 
+ 
 }

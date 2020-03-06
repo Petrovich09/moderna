@@ -1,4 +1,4 @@
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- Favicons -->
   <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
   <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
@@ -19,10 +19,39 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
   <!-- =======================================================
   * Template Name: Moderna - v2.0.0
   * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  
+  <script type="text/javascript">
+      var counter = Number("2");
+      $(document).on('click', '#addBlog', function(event){
+            event.preventDefault();
+            var value = Number("2");
+            counter += value;
+//          console.log(counter);
+          myfunc(counter);
+      });
+      function myfunc(counter){
+            $.ajax({
+                    url: "{{ route('blog') }}",
+                    method: "POST",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    data: { addBlog: counter }
+                  })
+                    .done (function (data){
+//                        console.log(data);
+                    $('#refresh').html(data);
+                    });          
+      }
+  </script>
+  
