@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 @section('content')
-
+<main id="main">
+    
     <!-- ======= Our Portfolio Section ======= -->
     <section class="breadcrumbs">
       <div class="container">
@@ -30,9 +31,9 @@
             </ul>
           </div>
         </div>
-@foreach($posts as $post)
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
 
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+@foreach($posts as $post)
           <div class="col-lg-4 col-md-6 filter-app">
             <div class="portfolio-item">
               <img src="{{asset('storage/'.$post->image)}}" class="img-fluid" alt="">
@@ -43,7 +44,10 @@
             </div>
           </div>
 @endforeach
+</div>
 
+      </div>
+    </section><!-- End Portfolio Section -->
 
   </main><!-- End #main -->
 
